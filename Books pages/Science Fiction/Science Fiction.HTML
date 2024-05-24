@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Science Fiction Books</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            color: white;
+            text-align: center;
+            padding: 25px;
+            background-image: url(BG1.jpg);
+            background-repeat: repeat-x;
+            background-size: auto;
+        }
+
+        .book-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .book {
+            position: relative;
+            width: 200px;
+            height: 325px;
+            margin: 100px;
+            background-color: #fff;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .book img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-bottom: 5px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 5px 24px 5px #777;
+            transition: transform 0.8s;
+        }
+
+        .book img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Centered modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            z-index: 1;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Science Fiction Books</h1>
+    </header>
+
+    <div class="book-container">
+        
+        <div class="book" onclick="showConfirmation('Book')">
+            <img src="book1.jpg">
+                <div>
+                    <center><h3><del>60$</del>&nbsp;&nbsp; 49.99$</h3></center>
+                </div>
+        </div>
+
+        <hr>
+
+        <div class="book" onclick="showConfirmation('Book')">
+            <img src="book2.jpg">
+                <div>
+                    <center><h3><del>60$</del>&nbsp;&nbsp; 49.99$</h3></center>
+                </div>
+        </div>
+
+        <hr>
+        
+        <div class="book" onclick="showConfirmation('Book')">
+            <img src="book3.jpg">
+                <div>
+                    <center><h3><del>60$</del>&nbsp;&nbsp; 49.99$</h3></center>
+                </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="book-container">
+        <div class="book" onclick="showConfirmation('Book')">
+            <img src="book4.jpg">
+                <div>
+                    <center><h3><del>60$</del>&nbsp;&nbsp; 49.99$</h3></center>
+                </div>
+        </div>
+
+        <hr>
+
+        <div class="book" onclick="showConfirmation('Book')">
+            <img src="book5.jpg">
+                <div>
+                    <center><h3><del>60$</del>&nbsp;&nbsp; 49.99$</h3></center>
+                </div>
+        </div>
+
+        <hr>
+
+        <div class="book" onclick="showConfirmation('Book')">
+            <img src="book6.jpg">
+                <div >
+                    <center><h3><del>60$</del>&nbsp;&nbsp; 49.99$</h3></center>
+                </div>
+        </div>
+
+        <!-- Add more books with onclick attribute -->
+
+    </div>
+
+    <!-- Centered modal and overlay for confirmation -->
+    <div class="overlay" id="overlay" onclick="hideConfirmation()"></div>
+    <div class="modal" id="modal">
+        <h2>Are you sure you want to buy <span id="bookName"></span>?</h2>
+        <button onclick="confirmBuy()">Yes</button>
+        <button onclick="hideConfirmation()">No</button>
+    </div>
+
+    <!-- Centered modal for success message -->
+    <div class="modal" id="successModal">
+        <h2>Thank you for your purchase!</h2>
+        <button onclick="hideSuccessModal()">OK</button>
+    </div>
+
+    <script>
+        function showConfirmation(bookName) {
+            document.getElementById('bookName').innerText = bookName;
+            document.getElementById('modal').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function hideConfirmation() {
+            document.getElementById('modal').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+        }
+
+        function confirmBuy() {
+            hideConfirmation();
+            showSuccessModal();
+        
+        }
+
+        function showSuccessModal() {
+            document.getElementById('successModal').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function hideSuccessModal() {
+            document.getElementById('successModal').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>
